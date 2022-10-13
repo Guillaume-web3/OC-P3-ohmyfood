@@ -1,0 +1,278 @@
+/* Variables */
+$couleur-primaire: #9356DC;
+$couleur-secondaire: #FF79DA;
+$couleur-tertiaire: #99E2D0;
+
+$couleur-recherche:#EAEBEB;
+$couleur-icone:#7F7F7E;
+$couleur-background-bouton:#F5EDFF;
+$couleur-fond: #F6F6F6;
+$couleur-footer: #343434;
+$couleur-texte-affiche-nouveau: #018666;
+$couleur-background-affiche-nouveau :#99E3D1;
+
+
+
+/* Fonctions */
+
+
+
+/* Mixins */
+
+
+
+/* Placeholders */
+%centrer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+%ombre-box{
+    box-shadow: 0 5px 5px gray;
+}
+%marge-standard{
+    margin: 20px auto;
+}
+%placement-h2{
+    margin: 20px;
+}
+
+/* Base - exemple : police de caractères, normes pour tout le site (box-sizing etc...)*/
+
+    /* Déclaration des polices */
+@font-face {
+    font-family: 'Shrikhand';
+    src: url('polices/Shrikhand/Shrikhand-Regular.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Roboto';
+    src: url('polices/Roboto/Roboto-Regular.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Roboto';
+    src: url('polices/Roboto/Roboto-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+
+body{
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    margin: 0;
+}
+
+h1, h2, h3{
+    font-family: "Shrikhand", sans-serif;
+    font-weight: bold;
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+h1{
+    font-size: 1.5em;
+}
+
+p{
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+/* Composants : blocs BEM indépendants ex: boutons */
+
+
+
+/* Layout : blocs réutilisables exemple : footer */
+.footer{
+    background-color: $couleur-footer;
+    color: white;
+    &__contenu{
+        padding: 30px;
+        &__logo{
+            font-family: Shrikhand;
+            font-size: 1.3em;
+            &__liens{
+                color: white;
+                &__liste{
+                    padding: 5px 0; /*Aucun effet*/
+                }
+            }
+        }
+    }
+}
+.footer li{
+    padding: 5px 0;
+}
+
+
+
+
+/* Pages : blocs qui ne s'appliquent qu'a une seule page */
+    /* Page Index */
+.header {
+    &__block-logo-principal{
+        @extend %marge-standard;
+        text-align: center;
+        width: 100%;
+    }
+    &__block-logo-principal img {
+        width: 180px;
+    }
+
+    &__block-recherche-ville {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        background-color: $couleur-recherche;
+        padding: 15px 0;
+        & i{
+            margin: auto 10px auto 10px;          
+        }
+        & input{
+            border: 0;
+            background-color: $couleur-recherche;
+            width: 150px;
+            text-align: center;
+            font-size: 1em;
+            font-weight: 700;
+        }
+    }
+
+    &__block-titre {
+        @extend %centrer;
+        background-color:$couleur-fond ;
+        padding: 50px 0;
+        & h1{
+            max-width: 70%;
+            text-align: center;
+            @extend %marge-standard;
+        }
+        & p{
+            max-width: 90%;
+            text-align: center;
+            margin-bottom: 25px;
+            @extend %marge-standard;
+        }
+        & button{
+            color: white;
+            font-size: 1em;
+            padding: 15px 20px;
+            @extend %marge-standard;
+            border:$couleur-secondaire solid 1px;
+            border-radius: 25px;
+            background:linear-gradient(175deg, $couleur-secondaire, $couleur-primaire);
+            @extend %ombre-box;
+        }
+    }
+}
+nav{
+    margin: 50px auto;
+    & h2{
+        @extend %placement-h2;
+
+    }
+}
+.nav__cartes-fonctionnement{
+    @extend %centrer;
+    padding: 20px;
+    &__lien{
+        display: flex;
+        width: 275px ;
+        height: 70px;
+        padding: 0 20px;
+        margin: 10px auto;
+        border-radius: 25px;
+        background-color: $couleur-fond;
+        align-items: center;
+        position: relative;
+        @extend %ombre-box;
+        &:hover{
+            background-color: $couleur-background-bouton;
+            & i{
+                color: $couleur-primaire;
+            }
+        }
+        &__numero{
+            color: white;
+            background-color: $couleur-primaire;
+            font-size: 0.7em;
+            width: 25px;
+            height: 25px;
+            border-radius: 25px;
+            text-align: center;
+            line-height: 25px;
+            position:absolute;
+            left: -10px;
+        }
+        & i{
+            color: $couleur-icone;
+            font-size: 1.25em;
+            margin: 0 20px;
+        }
+        & p{
+            font-weight: 700;
+        }
+    }    
+}
+.restaurants{
+    display: flex;
+    flex-direction: column;
+    background-color: $couleur-fond;
+    padding: 20px; 
+    &__carte{
+        background-color: white;
+        border-radius: 15px;
+        @extend %ombre-box;
+        position: relative;
+        margin-bottom: 20px ;
+        & img{
+            height: 180px;
+            object-fit: cover;
+            width: 100%;
+            border-radius: 15px 15px 0 0;
+        }        
+        &__nouveau{
+            position: absolute;
+            right: 15px;
+            top: 15px;
+            color: $couleur-texte-affiche-nouveau;
+            background-color: $couleur-background-affiche-nouveau;
+            font-size: 0.9em;
+            padding: 5px 10px;
+            border-radius: 3px;
+        }
+        &__description{
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 20px;
+            &__nom-lieu{
+                & h3{
+                    margin-bottom: 10px;
+                }
+            }            
+            & .fa-regular{
+                font-size: 1.5em;
+                margin-top: 10px; 
+                transition: color 0.25s ease-in;                
+                &:hover{
+                    font-weight: bold;
+                    color: $couleur-primaire;
+                    transition: color 1s;
+                }
+            }        
+        }    
+    }
+}

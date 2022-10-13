@@ -1,0 +1,243 @@
+@charset "UTF-8";
+/* Variables */
+/* Fonctions */
+/* Mixins */
+/* Placeholders */
+.nav__cartes-fonctionnement, .header__block-titre {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.restaurants__carte, .nav__cartes-fonctionnement__lien, .header__block-titre button {
+  box-shadow: 0 5px 5px gray;
+}
+
+.header__block-titre button, .header__block-titre p, .header__block-titre h1, .header__block-logo-principal {
+  margin: 20px auto;
+}
+
+nav h2 {
+  margin: 20px;
+}
+
+/* Base - exemple : police de caractères, normes pour tout le site (box-sizing etc...)*/
+/* Déclaration des polices */
+@font-face {
+  font-family: "Shrikhand";
+  src: url("polices/Shrikhand/Shrikhand-Regular.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("polices/Roboto/Roboto-Regular.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("polices/Roboto/Roboto-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+body {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  margin: 0;
+}
+
+h1, h2, h3 {
+  font-family: "Shrikhand", sans-serif;
+  font-weight: bold;
+  -webkit-margin-before: 0;
+          margin-block-start: 0;
+  -webkit-margin-after: 0;
+          margin-block-end: 0;
+}
+
+h1 {
+  font-size: 1.5em;
+}
+
+p {
+  -webkit-margin-before: 0;
+          margin-block-start: 0;
+  -webkit-margin-after: 0;
+          margin-block-end: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+/* Composants : blocs BEM indépendants ex: boutons */
+/* Layout : blocs réutilisables exemple : footer */
+.footer {
+  background-color: #343434;
+  color: white;
+}
+.footer__contenu {
+  padding: 30px;
+}
+.footer__contenu__logo {
+  font-family: Shrikhand;
+  font-size: 1.3em;
+}
+.footer__contenu__logo__liens {
+  color: white;
+}
+.footer__contenu__logo__liens__liste {
+  padding: 5px 0; /*Aucun effet*/
+}
+
+.footer li {
+  padding: 5px 0;
+}
+
+/* Pages : blocs qui ne s'appliquent qu'a une seule page */
+/* Page Index */
+.header__block-logo-principal {
+  text-align: center;
+  width: 100%;
+}
+.header__block-logo-principal img {
+  width: 180px;
+}
+.header__block-recherche-ville {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background-color: #EAEBEB;
+  padding: 15px 0;
+}
+.header__block-recherche-ville i {
+  margin: auto 10px auto 10px;
+}
+.header__block-recherche-ville input {
+  border: 0;
+  background-color: #EAEBEB;
+  width: 150px;
+  text-align: center;
+  font-size: 1em;
+  font-weight: 700;
+}
+.header__block-titre {
+  background-color: #F6F6F6;
+  padding: 50px 0;
+}
+.header__block-titre h1 {
+  max-width: 70%;
+  text-align: center;
+}
+.header__block-titre p {
+  max-width: 90%;
+  text-align: center;
+  margin-bottom: 25px;
+}
+.header__block-titre button {
+  color: white;
+  font-size: 1em;
+  padding: 15px 20px;
+  border: #FF79DA solid 1px;
+  border-radius: 25px;
+  background: linear-gradient(175deg, #FF79DA, #9356DC);
+}
+
+nav {
+  margin: 50px auto;
+}
+.nav__cartes-fonctionnement {
+  padding: 20px;
+}
+.nav__cartes-fonctionnement__lien {
+  display: flex;
+  width: 275px;
+  height: 70px;
+  padding: 0 20px;
+  margin: 10px auto;
+  border-radius: 25px;
+  background-color: #F6F6F6;
+  align-items: center;
+  position: relative;
+}
+.nav__cartes-fonctionnement__lien:hover {
+  background-color: #F5EDFF;
+}
+.nav__cartes-fonctionnement__lien:hover i {
+  color: #9356DC;
+}
+.nav__cartes-fonctionnement__lien__numero {
+  color: white;
+  background-color: #9356DC;
+  font-size: 0.7em;
+  width: 25px;
+  height: 25px;
+  border-radius: 25px;
+  text-align: center;
+  line-height: 25px;
+  position: absolute;
+  left: -10px;
+}
+.nav__cartes-fonctionnement__lien i {
+  color: #7F7F7E;
+  font-size: 1.25em;
+  margin: 0 20px;
+}
+.nav__cartes-fonctionnement__lien p {
+  font-weight: 700;
+}
+
+.restaurants {
+  display: flex;
+  flex-direction: column;
+  background-color: #F6F6F6;
+  padding: 20px;
+}
+.restaurants__carte {
+  background-color: white;
+  border-radius: 15px;
+  position: relative;
+  margin-bottom: 20px;
+}
+.restaurants__carte img {
+  height: 180px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  border-radius: 15px 15px 0 0;
+}
+.restaurants__carte__nouveau {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  color: #018666;
+  background-color: #99E3D1;
+  font-size: 0.9em;
+  padding: 5px 10px;
+  border-radius: 3px;
+}
+.restaurants__carte__description {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 20px;
+}
+.restaurants__carte__description__nom-lieu h3 {
+  margin-bottom: 10px;
+}
+.restaurants__carte__description .fa-regular {
+  font-size: 1.5em;
+  margin-top: 10px;
+  transition: color 0.25s ease-in;
+}
+.restaurants__carte__description .fa-regular:hover {
+  font-weight: bold;
+  color: #9356DC;
+  transition: color 1s;
+}/*# sourceMappingURL=styles.css.map */
