@@ -21,19 +21,19 @@
 /* Déclaration des polices */
 @font-face {
   font-family: "Shrikhand";
-  src: url("polices/Shrikhand/Shrikhand-Regular.ttf") format("truetype");
+  src: url("../polices/Shrikhand/Shrikhand-Regular.ttf") format("truetype");
   font-weight: 500;
   font-style: normal;
 }
 @font-face {
   font-family: "Roboto";
-  src: url("polices/Roboto/Roboto-Regular.ttf") format("truetype");
+  src: url("../polices/Roboto/Roboto-Regular.ttf") format("truetype");
   font-weight: 500;
   font-style: normal;
 }
 @font-face {
   font-family: "Roboto";
-  src: url("polices/Roboto/Roboto-Bold.ttf") format("truetype");
+  src: url("../polices/Roboto/Roboto-Bold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
 }
@@ -44,9 +44,11 @@ body {
   box-sizing: border-box;
 }
 
-h1, h2, h3 {
+.titre-logo {
   font-family: "Shrikhand", sans-serif;
-  font-weight: bold;
+}
+
+h1, h2, h3 {
   -webkit-margin-before: 0;
           margin-block-start: 0;
   -webkit-margin-after: 0;

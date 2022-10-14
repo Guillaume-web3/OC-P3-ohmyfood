@@ -53,19 +53,19 @@ $breakpoint: (
     /* Déclaration des polices */
 @font-face {
     font-family: 'Shrikhand';
-    src: url('polices/Shrikhand/Shrikhand-Regular.ttf') format('truetype');
+    src: url('../polices/Shrikhand/Shrikhand-Regular.ttf') format('truetype');
     font-weight: 500;
     font-style: normal;
 }
 @font-face {
     font-family: 'Roboto';
-    src: url('polices/Roboto/Roboto-Regular.ttf') format('truetype');
+    src: url('../polices/Roboto/Roboto-Regular.ttf') format('truetype');
     font-weight: 500;
     font-style: normal;
 }
 @font-face {
     font-family: 'Roboto';
-    src: url('polices/Roboto/Roboto-Bold.ttf') format('truetype');
+    src: url('../polices/Roboto/Roboto-Bold.ttf') format('truetype');
     font-weight: 700;
     font-style: normal;
 }
@@ -78,9 +78,11 @@ body {
     box-sizing: border-box;
 }
 
-h1, h2, h3 {
+.titre-logo {
     font-family: "Shrikhand", sans-serif;
-    font-weight: bold;
+}
+
+h1, h2, h3{
     margin-block-start: 0;
     margin-block-end: 0;
 }
@@ -150,10 +152,10 @@ ul {
         width: 100%;
         background-color: $couleur-recherche;
         padding: 15px 0;
-        & i {
+        i {
             margin: auto 10px auto 10px;          
         }
-        & input {
+        input {
             border: 0;
             background-color: $couleur-recherche;
             width: 150px;
@@ -167,18 +169,18 @@ ul {
         @extend %centrer;
         background-color:$couleur-fond ;
         padding: 50px 0;
-        & h1 {
+        h1 {
             max-width: 70%;
             text-align: center;
             @extend %marge-standard;
         }
-        & p {
+        p {
             max-width: 90%;
             text-align: center;
             margin-bottom: 25px;
             @extend %marge-standard;
         }
-        & button {
+        button {
             color: white;
             font-size: 1em;
             padding: 15px 20px;
@@ -192,7 +194,7 @@ ul {
 }
 nav{
     padding: 20px;
-    & h2 {
+    h2 {
         margin: 20px 0;
     }
 }
@@ -202,7 +204,7 @@ nav{
         flex-direction: row;
         justify-content: center;
     }
-    & div {
+    div {
         margin: 0 10px;
     }
     &__lien {
@@ -218,7 +220,7 @@ nav{
         @extend %ombre-box;
         &:hover {
             background-color: $couleur-background-bouton;
-            & i {
+            i {
                 color: $couleur-primaire;
             }
         }
@@ -234,12 +236,12 @@ nav{
             position:absolute;
             left: -10px;
         }
-        & i {
+        i {
             color: $couleur-icone;
             font-size: 1.25em;
             margin: 0 20px;
         }
-        & p {
+        p {
             font-weight: 700;
         }
     }    
@@ -247,7 +249,7 @@ nav{
 .restaurants {
     background-color: $couleur-fond;
     padding: 20px;
-    & h2 {
+    h2 {
         margin: 20px 0;
     }
     &__cartes {
@@ -270,7 +272,7 @@ nav{
             @include desktop {
                 width: 24%;
             }
-            & img {
+            img {
                 height: 180px;
                 object-fit: cover;
                 width: 100%;
@@ -291,11 +293,11 @@ nav{
                 justify-content: space-between;
                 margin: 10px 20px;
                 &__nom-lieu {
-                    & h3 {
+                    h3 {
                         margin-bottom: 10px;
                     }
                 }            
-                & .fa-regular {
+                .fa-regular {
                     font-size: 1.5em;
                     margin-top: 10px; 
                     transition: color 0.25s ease-in;                
