@@ -9,7 +9,7 @@ $couleur-background-bouton:#F5EDFF;
 $couleur-fond: #F6F6F6;
 $couleur-footer: #343434;
 $couleur-texte-affiche-nouveau: #018666;
-$couleur-background-affiche-nouveau :#99E3D1;
+$couleur-background-affiche-nouveau :#99E3D1; /* A compiler avec couleur tertiaire */
 
 $breakpoint: (
     tablette: 768px,
@@ -78,19 +78,25 @@ body {
     box-sizing: border-box;
 }
 
-.titre-logo {
+.titre-logo, h1 {
     font-family: "Shrikhand", sans-serif;
 }
 
-h1, h2, h3{
+h1, h2, h3, h4{
     margin-block-start: 0;
     margin-block-end: 0;
 }
-
 h1 {
+    font-size: 1.8em;
+}
+
+h2 {
     font-size: 1.5em;
 }
 
+h4 {
+    text-transform: uppercase;
+}
 p {
     margin-block-start: 0;
     margin-block-end: 0;
@@ -105,11 +111,32 @@ ul {
     list-style-type: none;
     padding: 0;
 }
+.prix {
+    font-weight: bold;
+}
 /* Composants : blocs BEM indépendants ex: boutons */
 
 
 
 /* Layout : blocs réutilisables exemple : footer */
+.header {
+    &__logo {
+        @extend %marge-standard;
+        text-align: center;
+        width: 100%;
+        position: relative;
+        img {
+            width: 180px;
+        }
+    }
+    &__back-arrow {
+        font-size: 1.5em;
+        position: absolute;
+        top: 25px;
+        left: 20px;
+    }
+}
+
 .footer {
     background-color: $couleur-footer;
     color: white;
@@ -136,17 +163,9 @@ ul {
 
 /* Pages : blocs qui ne s'appliquent qu'a une seule page */
     /* Page Index */
-.header {
-    &__block-logo-principal {
-        @extend %marge-standard;
-        text-align: center;
-        width: 100%;
-    }
-    &__block-logo-principal img {
-        width: 180px;
-    }
 
-    &__block-recherche-ville {
+.nav {
+    &__bloc-recherche-ville {
         display: flex;
         justify-content: center;
         width: 100%;
@@ -164,8 +183,7 @@ ul {
             font-weight: 700;
         }
     }
-
-    &__block-titre {
+    &__bloc-titre {
         @extend %centrer;
         background-color:$couleur-fond ;
         padding: 50px 0;
@@ -192,58 +210,58 @@ ul {
         }
     }
 }
-nav{
+.fonctionnement{
     padding: 20px;
     h2 {
         margin: 20px 0;
     }
-}
-.nav__cartes-fonctionnement {
-    @extend %centrer;
-    @include desktop {
-        flex-direction: row;
-        justify-content: center;
-    }
-    div {
-        margin: 0 10px;
-    }
-    &__lien {
-        display: flex;
-        width: 275px ;
-        height: 70px;
-        padding: 0 20px;
-        margin: 10px auto;
-        border-radius: 25px;
-        background-color: $couleur-fond;
-        align-items: center;
-        position: relative;
-        @extend %ombre-box;
-        &:hover {
-            background-color: $couleur-background-bouton;
-            i {
-                color: $couleur-primaire;
-            }
+    &__cartes {
+        @extend %centrer;
+        @include desktop {
+            flex-direction: row;
+            justify-content: center;
         }
-        &__numero {
-            color: white;
-            background-color: $couleur-primaire;
-            font-size: 0.7em;
-            width: 25px;
-            height: 25px;
+        div {
+            margin: 0 10px;
+        }
+        &__lien {
+            display: flex;
+            width: 275px ;
+            height: 70px;
+            padding: 0 20px;
+            margin: 10px auto;
             border-radius: 25px;
-            text-align: center;
-            line-height: 25px;
-            position:absolute;
-            left: -10px;
-        }
-        i {
-            color: $couleur-icone;
-            font-size: 1.25em;
-            margin: 0 20px;
-        }
-        p {
-            font-weight: 700;
-        }
+            background-color: $couleur-fond;
+            align-items: center;
+            position: relative;
+            @extend %ombre-box;
+            &:hover {
+                background-color: $couleur-background-bouton;
+                i {
+                    color: $couleur-primaire;
+                }
+            }
+            &__numero {
+                color: white;
+                background-color: $couleur-primaire;
+                font-size: 0.7em;
+                width: 25px;
+                height: 25px;
+                border-radius: 25px;
+                text-align: center;
+                line-height: 25px;
+                position:absolute;
+                left: -10px;
+            }
+            i {
+                color: $couleur-icone;
+                font-size: 1.25em;
+                margin: 0 20px;
+            }
+            p {
+                font-weight: 700;
+            }
+        }    
     }    
 }
 .restaurants {
@@ -310,4 +328,84 @@ nav{
             }    
         }
     }    
+}
+    /* Pages Menus */
+.menu {
+    &__photo-restaurant {
+        img {
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+    &__carte {
+        background-color: $couleur-fond;
+        border-radius: 50px;
+        position: relative;
+        margin-top: -60px;
+        &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 30px 40px 40px 20px;
+        .fa-regular {
+            font-size: 1.6em;
+            }
+        }
+        &__groupe {
+            margin: 0 15px;
+            &__titre {
+                &__soulign {
+                    width: 40px;
+                    height: 3px;
+                    background-color: $couleur-tertiaire;
+                    margin: 5px 0;
+                }
+            }
+            &__liste {
+                &__bloc {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    background-color: white;
+                    border-radius: 20px;
+                    @extend %ombre-box;
+                    margin-top: 15px;
+                    &__visible {
+                        padding: 15px;
+                        width: 100%;
+                        h3 {
+                            margin-bottom: 5px ;
+                        }
+                        &__deuxieme-ligne {
+                            display: flex;
+                            justify-content: space-between;
+                        }                    
+                    }
+                    &__cache {
+                        /*display: none;*/
+                        width: 90px;
+                        height: 77px;
+                        border-radius: 0 20px 20px 0;
+                        background-color: $couleur-tertiaire;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        &__fond {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            width: 1.6em;
+                            height: 1.6em;
+                            border-radius: 100%;
+                            background-color: white;
+                            i {
+                                font-size: 1.7em;
+                                color: $couleur-tertiaire;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
