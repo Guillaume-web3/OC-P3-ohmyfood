@@ -363,33 +363,52 @@ ul {
             }
             &__liste {
                 &__bloc {
+                    height: 80px;
                     display: flex;
-                    justify-content: space-between;
-                    align-items: center;
                     background-color: white;
                     border-radius: 20px;
                     @extend %ombre-box;
                     margin-top: 15px;
-                    &__visible {
+                    &__info {
+                        display: flex;                      
+                        overflow: hidden;
+                        justify-content: space-between;
+                        flex: 1;
+                        max-width: 100%;
                         padding: 15px;
-                        width: 100%;
-                        h3 {
-                            margin-bottom: 5px ;
-                        }
-                        &__deuxieme-ligne {
+                        &__texte {
                             display: flex;
-                            justify-content: space-between;
-                        }                    
-                    }
-                    &__cache {
-                        /*display: none;*/
-                        width: 90px;
-                        height: 77px;
+                            flex-direction: column;
+                            overflow: hidden;
+                            white-space: nowrap;
+                            h3 {
+                                margin-bottom: 5px ;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                            }
+                            p{
+                                margin-bottom: 5px ;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                            }
+                        }
+                        &__prix {
+                            display: flex;
+                            align-items: flex-end;
+                            margin-left: 10px;
+                        }
+                    }          
+                    &__check {
+                        cursor: pointer;
                         border-radius: 0 20px 20px 0;
                         background-color: $couleur-tertiaire;
+                        height: 100%;
+                        width: 0;
+                        opacity: 0;
                         display: flex;
                         justify-content: center;
                         align-items: center;
+                        transition: transform 0.4s ease-in-out, width 0.4s ease-in-out, opacity 0.4s ease-in-out;
                         &__fond {
                             display: flex;
                             justify-content: center;
@@ -401,8 +420,17 @@ ul {
                             i {
                                 font-size: 1.7em;
                                 color: $couleur-tertiaire;
+                                transform: rotate(360deg);
+                                transition: 0.5s ease-in-out;
                             }
-                        }
+                        } 
+                    }
+                    &:hover .check {
+                        opacity: 100%;
+                        width: 90px;
+                    }
+                    &:hover .fa-circle-check {
+                        transform: rotate(0deg);
                     }
                 }
             }
