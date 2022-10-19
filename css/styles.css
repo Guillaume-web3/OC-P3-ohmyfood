@@ -147,17 +147,57 @@ ul {
   align-items: center;
   padding: 30px 40px 20px 20px;
 }
+@media screen and (min-width: 768px) {
+  .restaurant__card__header {
+    justify-content: space-evenly;
+  }
+}
 .restaurant__card__header .fa-regular {
   font-size: 1.6em;
 }
 .restaurant__card__menu {
-  max-width: 400px;
   display: flex;
   flex-direction: column;
-  margin: auto;
+}
+@media screen and (min-width: 768px) {
+  .restaurant__card__menu {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+    padding: 0 40px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .restaurant__card__menu {
+    display: flex;
+    flex-direction: row;
+  }
 }
 .restaurant__card__menu__complete {
-  padding: 15px 3% 30px 3%;
+  padding: 15px 15px 30px 15px;
+}
+@media screen and (min-width: 768px) {
+  .restaurant__card__menu__complete {
+    /* A simplifier pour éviter la répétition */
+  }
+  .restaurant__card__menu__complete:nth-child(1) {
+    grid-column: 1/3;
+    grid-row: 1;
+  }
+  .restaurant__card__menu__complete:nth-child(2) {
+    grid-column: 3/5;
+    grid-row: 1;
+  }
+  .restaurant__card__menu__complete:nth-child(3) {
+    grid-column: 2/4;
+    grid-row: 2;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .restaurant__card__menu__complete {
+    width: 30%;
+  }
 }
 .restaurant__card__menu__complete__title__soulign {
   width: 40px;
