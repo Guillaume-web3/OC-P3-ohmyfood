@@ -110,7 +110,7 @@ ul {
     list-style-type: none;
     padding: 0;
 }
-.prix {
+.price {
     font-weight: bold;
 }
 /* Composants : blocs BEM indépendants ex: boutons */
@@ -159,15 +159,15 @@ ul {
 }
 
     /* Pages Menus */
-.menu {
-    &__photo-restaurant {
+.restaurant {
+    &__img {
         img {
             width: 100%;
             max-height: 500px;
             object-fit: cover;
         }
     }
-    &__carte {
+    &__card {
         background-color: $couleur-fond;
         border-radius: 50px;
         position: relative;
@@ -181,9 +181,10 @@ ul {
             font-size: 1.6em;
             }
         }
-        &__groupe {
-            padding: 15px 15px 30px 15px;
-            &__titre {
+        &__complete {
+            padding: 15px 3% 30px 3%;
+            max-width: 400px;
+            &__title {
                 &__soulign {
                     width: 40px;
                     height: 3px;
@@ -191,8 +192,8 @@ ul {
                     margin: 5px 0;
                 }
             }
-            &__liste {
-                &__bloc {
+            &__list {
+                &__block {
                     height: 80px;
                     display: flex;
                     background-color: white;
@@ -218,7 +219,7 @@ ul {
                         flex: 1;
                         max-width: 100%;
                         padding: 15px;
-                        &__texte {
+                        &__text {
                             display: flex;
                             flex-direction: column;
                             overflow: hidden;
@@ -234,7 +235,7 @@ ul {
                                 text-overflow: ellipsis;
                             }
                         }
-                        &__prix {
+                        &__price {
                             display: flex;
                             align-items: flex-end;
                             margin-left: 10px;
@@ -251,7 +252,7 @@ ul {
                         justify-content: center;
                         align-items: center;
                         transition: transform 0.4s ease-in-out, width 0.4s ease-in-out, opacity 0.4s ease-in-out;
-                        &__fond {
+                        &__background {
                             display: flex;
                             justify-content: center;
                             align-items: center;

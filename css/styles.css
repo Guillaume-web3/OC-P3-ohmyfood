@@ -10,7 +10,7 @@
   align-items: center;
 }
 
-.restaurants__cartes__carte, .fonctionnement__cartes__lien, .nav__bloc-titre button, .menu__carte__groupe__liste__bloc {
+.restaurants__cartes__carte, .fonctionnement__cartes__lien, .nav__bloc-titre button, .restaurant__card__complete__list__block {
   box-shadow: 0 5px 5px gray;
 }
 
@@ -85,7 +85,7 @@ ul {
   padding: 0;
 }
 
-.prix {
+.price {
   font-weight: bold;
 }
 
@@ -129,37 +129,38 @@ ul {
 }
 
 /* Pages Menus */
-.menu__photo-restaurant img {
+.restaurant__img img {
   width: 100%;
   max-height: 500px;
   -o-object-fit: cover;
      object-fit: cover;
 }
-.menu__carte {
+.restaurant__card {
   background-color: #F6F6F6;
   border-radius: 50px;
   position: relative;
   margin-top: -60px;
 }
-.menu__carte__header {
+.restaurant__card__header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 30px 40px 20px 20px;
 }
-.menu__carte__header .fa-regular {
+.restaurant__card__header .fa-regular {
   font-size: 1.6em;
 }
-.menu__carte__groupe {
-  padding: 15px 15px 30px 15px;
+.restaurant__card__complete {
+  padding: 15px 3% 30px 3%;
+  max-width: 400px;
 }
-.menu__carte__groupe__titre__soulign {
+.restaurant__card__complete__title__soulign {
   width: 40px;
   height: 3px;
   background-color: #99E2D0;
   margin: 5px 0;
 }
-.menu__carte__groupe__liste__bloc {
+.restaurant__card__complete__list__block {
   height: 80px;
   display: flex;
   background-color: white;
@@ -170,19 +171,19 @@ ul {
   opacity: 0;
   /* a simplifier pour éviter la répétition */
 }
-.menu__carte__groupe__liste__bloc:nth-child(1) {
+.restaurant__card__complete__list__block:nth-child(1) {
   -webkit-animation-delay: 0.4s;
           animation-delay: 0.4s;
 }
-.menu__carte__groupe__liste__bloc:nth-child(2) {
+.restaurant__card__complete__list__block:nth-child(2) {
   -webkit-animation-delay: 0.6s;
           animation-delay: 0.6s;
 }
-.menu__carte__groupe__liste__bloc:nth-child(3) {
+.restaurant__card__complete__list__block:nth-child(3) {
   -webkit-animation-delay: 0.8s;
           animation-delay: 0.8s;
 }
-.menu__carte__groupe__liste__bloc__info {
+.restaurant__card__complete__list__block__info {
   display: flex;
   overflow: hidden;
   justify-content: space-between;
@@ -190,28 +191,28 @@ ul {
   max-width: 100%;
   padding: 15px;
 }
-.menu__carte__groupe__liste__bloc__info__texte {
+.restaurant__card__complete__list__block__info__text {
   display: flex;
   flex-direction: column;
   overflow: hidden;
   white-space: nowrap;
 }
-.menu__carte__groupe__liste__bloc__info__texte h3 {
+.restaurant__card__complete__list__block__info__text h3 {
   margin-bottom: 5px;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.menu__carte__groupe__liste__bloc__info__texte p {
+.restaurant__card__complete__list__block__info__text p {
   margin-bottom: 5px;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.menu__carte__groupe__liste__bloc__info__prix {
+.restaurant__card__complete__list__block__info__price {
   display: flex;
   align-items: flex-end;
   margin-left: 10px;
 }
-.menu__carte__groupe__liste__bloc__check {
+.restaurant__card__complete__list__block__check {
   cursor: pointer;
   border-radius: 0 20px 20px 0;
   background-color: #99E2D0;
@@ -223,7 +224,7 @@ ul {
   align-items: center;
   transition: transform 0.4s ease-in-out, width 0.4s ease-in-out, opacity 0.4s ease-in-out;
 }
-.menu__carte__groupe__liste__bloc__check__fond {
+.restaurant__card__complete__list__block__check__background {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -232,17 +233,17 @@ ul {
   border-radius: 100%;
   background-color: white;
 }
-.menu__carte__groupe__liste__bloc__check__fond i {
+.restaurant__card__complete__list__block__check__background i {
   font-size: 1.7em;
   color: #99E2D0;
   transform: rotate(-360deg);
   transition: 0.5s ease-in-out;
 }
-.menu__carte__groupe__liste__bloc:hover .check {
+.restaurant__card__complete__list__block:hover .check {
   opacity: 100%;
   width: 90px;
 }
-.menu__carte__groupe__liste__bloc:hover .fa-circle-check {
+.restaurant__card__complete__list__block:hover .fa-circle-check {
   transform: rotate(0deg);
 }
 
