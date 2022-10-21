@@ -10,11 +10,15 @@
   align-items: center;
 }
 
-.restaurants__cartes__carte, .fonctionnement__cartes__lien, .nav__bloc-titre button, .restaurant__card__menu__complete__list__block {
-  box-shadow: 0 5px 5px gray;
+.restaurants__cartes__carte, .fonctionnement__cartes__lien, .restaurant__card__menu__complete__list__block, button {
+  box-shadow: rgba(0, 0, 0, 0.15) 0 5px 50px;
 }
 
-.nav__bloc-titre button, .nav__bloc-titre p, .nav__bloc-titre h1, .header__logo {
+.fonctionnement__cartes__lien:hover, button:hover {
+  box-shadow: rgba(0, 0, 0, 0.3) 0 5px 50px;
+}
+
+.nav__bloc-titre p, .nav__bloc-titre h1, .header__logo, button {
   margin: 20px auto;
 }
 
@@ -90,6 +94,34 @@ ul {
 }
 
 /* Composants : blocs BEM indépendants ex: boutons */
+button {
+  color: white;
+  font-size: 1em;
+  padding: 15px 30px;
+  border: 0;
+  border-radius: 25px;
+  background: linear-gradient(175deg, #FF79DA, #9356DC);
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+}
+button:hover::after {
+  opacity: 1;
+}
+button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 25px;
+  background: linear-gradient(175deg, #fface8, #a16be0);
+  opacity: 0;
+  transition: opacity 0.25s ease-in-out;
+  z-index: -1;
+}
+
 /* Layout : blocs réutilisables exemple : footer */
 .header__logo {
   text-align: center;
@@ -128,6 +160,11 @@ ul {
   padding: 5px 0;
 }
 
+.order-button {
+  text-align: center;
+  padding-bottom: 20px;
+}
+
 /* Pages Menus */
 .restaurant__img img {
   width: 100%;
@@ -137,7 +174,7 @@ ul {
 }
 .restaurant__card {
   background-color: #F6F6F6;
-  border-radius: 50px;
+  border-radius: 50px 50px 0 0;
   position: relative;
   margin-top: -60px;
 }
@@ -168,7 +205,7 @@ ul {
     padding: 0 40px;
   }
 }
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 992px) {
   .restaurant__card__menu {
     display: flex;
     flex-direction: row;
@@ -194,10 +231,16 @@ ul {
     grid-row: 2;
   }
 }
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 992px) {
   .restaurant__card__menu__complete {
     width: 30%;
   }
+}
+.restaurant__card__menu__complete__title::before {
+  width: 40px;
+  height: 3px;
+  background-color: red;
+  margin: 5px 0;
 }
 .restaurant__card__menu__complete__title__soulign {
   width: 40px;
@@ -315,6 +358,73 @@ ul {
 }
 /* Pages : blocs qui ne s'appliquent qu'a une seule page */
 /* Page Index */
+/* Loading Spinner */
+@-webkit-keyframes loadingscreen {
+  0% {
+    opacity: 100%;
+  }
+  100% {
+    opacity: 0%;
+    visibility: hidden;
+  }
+}
+@keyframes loadingscreen {
+  0% {
+    opacity: 100%;
+  }
+  100% {
+    opacity: 0%;
+    visibility: hidden;
+  }
+}
+@-webkit-keyframes eclipse {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes eclipse {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.loading-spinner {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #ffffff;
+  position: fixed;
+  z-index: 100;
+  -webkit-animation: loadingscreen 0.2s 3s forwards;
+          animation: loadingscreen 0.2s 3s forwards;
+}
+.loading-spinner__eclipse {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.loading-spinner__eclipse div {
+  -webkit-animation: eclipse 1s linear infinite;
+          animation: eclipse 1s linear infinite;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  box-shadow: 0 12px 0 0 #9356DC;
+}
+
 .nav__bloc-recherche-ville {
   display: flex;
   justify-content: center;
@@ -346,14 +456,6 @@ ul {
   text-align: center;
   margin-bottom: 25px;
 }
-.nav__bloc-titre button {
-  color: white;
-  font-size: 1em;
-  padding: 15px 20px;
-  border: #FF79DA solid 1px;
-  border-radius: 25px;
-  background: linear-gradient(175deg, #FF79DA, #9356DC);
-}
 
 .fonctionnement {
   padding: 20px;
@@ -361,7 +463,7 @@ ul {
 .fonctionnement h2 {
   margin: 20px 0;
 }
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 992px) {
   .fonctionnement__cartes {
     flex-direction: row;
     justify-content: center;
@@ -437,7 +539,7 @@ ul {
     width: 49%;
   }
 }
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 992px) {
   .restaurants__cartes__carte {
     width: 24%;
   }

@@ -13,7 +13,7 @@ $couleur-background-affiche-nouveau :#99E3D1; /* A compiler avec couleur tertiai
 
 $breakpoint: (
     tablette: 768px,
-    desktop: 1024px
+    desktop: 992px
 );
 
 /* Fonctions */
@@ -40,8 +40,12 @@ $breakpoint: (
     align-items: center;
 }
 %ombre-box {
-    box-shadow: 0 5px 5px gray;
+    box-shadow: rgba(0, 0, 0, 0.15) 0 5px 50px;
 }
+%ombre-box-hover{
+    box-shadow: rgba(0, 0, 0, 0.3) 0 5px 50px;
+}
+
 %marge-standard {
     margin: 20px auto;
 }
@@ -114,8 +118,38 @@ ul {
     font-weight: bold;
 }
 /* Composants : blocs BEM indépendants ex: boutons */
-
-
+button {
+    color: white;
+    font-size: 1em;
+    padding: 15px 30px;
+    @extend %marge-standard;
+    border:0;
+    border-radius: 25px;
+    background:linear-gradient(175deg, $couleur-secondaire, $couleur-primaire);
+    @extend %ombre-box;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    &:hover {
+        @extend %ombre-box-hover;
+        &::after{
+            opacity: 1;
+        }
+    }
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        border-radius: 25px;
+        background:linear-gradient(175deg, lighten($couleur-secondaire, 10), lighten($couleur-primaire, 5));
+        opacity: 0;
+        transition: opacity 0.25s ease-in-out;
+        z-index : -1;
+    }
+}
 
 /* Layout : blocs réutilisables exemple : footer */
 .header {
@@ -158,6 +192,10 @@ ul {
     padding: 5px 0;
 }
 
+.order-button {
+    text-align: center;
+    padding-bottom: 20px;
+}
     /* Pages Menus */
 .restaurant {
     &__img {
@@ -169,7 +207,7 @@ ul {
     }
     &__card {
         background-color: $couleur-fond;
-        border-radius: 50px;
+        border-radius: 50px 50px 0 0;
         position: relative;
         margin-top: -60px;
         &__header {
@@ -220,6 +258,12 @@ ul {
                 }
 
                 &__title {
+                    &::before{
+                        width: 40px;
+                        height: 3px;
+                        background-color: red;
+                        margin: 5px 0;
+                    }
                     &__soulign {
                         width: 40px;
                         height: 3px;
@@ -331,6 +375,52 @@ ul {
 /* Pages : blocs qui ne s'appliquent qu'a une seule page */
     /* Page Index */
 
+        /* Loading Spinner */
+
+@keyframes loadingscreen {
+    0% {
+        opacity: 100%;
+    }
+    100% {
+        opacity: 0%;
+        visibility: hidden;
+    }
+}
+@keyframes eclipse {
+    0% {
+        transform: rotate(0deg)
+    }
+    50% {
+        transform: rotate(180deg)
+    }
+    100% {
+        transform: rotate(360deg)
+    }
+}
+.loading-spinner {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #ffffff;
+    position:fixed;
+    z-index: 100;
+    animation: loadingscreen 0.2s 3s forwards;
+    &__eclipse{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        div {
+            animation: eclipse 1s linear infinite;
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            box-shadow: 0 12px 0 0 $couleur-primaire ;
+        }
+    }
+}
+
 .nav {
     &__bloc-recherche-ville {
         display: flex;
@@ -365,16 +455,6 @@ ul {
             margin-bottom: 25px;
             @extend %marge-standard;
         }
-        button {
-            color: white;
-            font-size: 1em;
-            padding: 15px 20px;
-            @extend %marge-standard;
-            border:$couleur-secondaire solid 1px;
-            border-radius: 25px;
-            background:linear-gradient(175deg, $couleur-secondaire, $couleur-primaire);
-            @extend %ombre-box;
-        }
     }
 }
 .fonctionnement{
@@ -404,6 +484,7 @@ ul {
             @extend %ombre-box;
             &:hover {
                 background-color: $couleur-background-bouton;
+                @extend %ombre-box-hover;                
                 i {
                     color: $couleur-primaire;
                 }
