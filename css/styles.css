@@ -143,21 +143,29 @@ button::after {
   color: white;
 }
 .footer__contenu {
-  padding: 30px;
+  padding: 20px 30px 40px 30px;
+}
+@media screen and (min-width: 768px) {
+  .footer__contenu {
+    text-align: center;
+  }
 }
 .footer__contenu__logo {
   font-family: Shrikhand;
   font-size: 1.3em;
+  padding-left: 15px;
 }
-.footer__contenu__logo__liens {
-  color: white;
+.footer__contenu__liens {
+  margin-top: 15px;
 }
-.footer__contenu__logo__liens__liste {
-  padding: 5px 0; /*Aucun effet*/
+@media screen and (min-width: 768px) {
+  .footer__contenu__liens {
+    display: flex;
+    justify-content: center;
+  }
 }
-
-.footer li {
-  padding: 5px 0;
+.footer__contenu__liens__liste {
+  padding: 5px 15px;
 }
 
 .order-button {
@@ -236,17 +244,16 @@ button::after {
     width: 30%;
   }
 }
-.restaurant__card__menu__complete__title::before {
+.restaurant__card__menu__complete__title::after {
+  content: "";
+  position: absolute;
   width: 40px;
   height: 3px;
-  background-color: red;
+  background-color: #9356DC;
   margin: 5px 0;
 }
-.restaurant__card__menu__complete__title__soulign {
-  width: 40px;
-  height: 3px;
-  background-color: #99E2D0;
-  margin: 5px 0;
+.restaurant__card__menu__complete__list {
+  padding-top: 10px;
 }
 .restaurant__card__menu__complete__list__block {
   height: 80px;
@@ -405,6 +412,7 @@ button::after {
   overflow: hidden;
   background: #ffffff;
   position: fixed;
+  top: 0;
   z-index: 100;
   -webkit-animation: loadingscreen 0.2s 3s forwards;
           animation: loadingscreen 0.2s 3s forwards;
@@ -425,6 +433,7 @@ button::after {
   box-shadow: 0 12px 0 0 #9356DC;
 }
 
+/* Navigation */
 .nav__bloc-recherche-ville {
   display: flex;
   justify-content: center;
@@ -457,6 +466,7 @@ button::after {
   margin-bottom: 25px;
 }
 
+/* Fonctionnement */
 .fonctionnement {
   padding: 20px;
 }
@@ -510,6 +520,7 @@ button::after {
   font-weight: 700;
 }
 
+/* Restaurants */
 .restaurants {
   background-color: #F6F6F6;
   padding: 20px;
