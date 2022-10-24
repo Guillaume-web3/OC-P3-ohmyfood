@@ -245,15 +245,18 @@ button {
         position: relative;
         margin-top: -60px;
         &__header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 30px 40px 20px 20px;
-        @include tablette {
-            justify-content:space-evenly;                       
-        }
-        .fa-regular {
-            font-size: 1.6em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 40px;
+            @include tablette {
+                justify-content:center;                    
+            }
+            .fa-heart {
+                @include tablette {
+                    position: absolute;
+                    right: 100px;
+                }
             }
         }
         &__menu {
