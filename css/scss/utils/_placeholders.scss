@@ -1,0 +1,16 @@
+/* Placeholders */
+%centrer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+%ombre-box {
+    box-shadow: rgba(0, 0, 0, 0.15) 0 5px 50px;
+}
+%ombre-box-hover{
+    box-shadow: rgba(0, 0, 0, 0.3) 0 5px 50px;
+}
+
+%marge-standard {
+    margin: 20px auto;
+}

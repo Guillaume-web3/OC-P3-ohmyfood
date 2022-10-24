@@ -1,0 +1,19 @@
+/* Mixins */
+@mixin tablette {
+    @media screen and (min-width: map-get($breakpoint, tablette)) {
+        @content;
+    }
+}
+@mixin desktop {
+    @media screen and (min-width: map-get($breakpoint, desktop)) {
+        @content;
+    }
+}
+
+@mixin animation-delay {
+    @for $i from 1 through $nombre-plat-max {
+        &:nth-child(#{$i}) {
+            animation-delay :#{$i*0.3}s 
+        }
+    }
+}

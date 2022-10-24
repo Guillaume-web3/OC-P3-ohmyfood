@@ -1,0 +1,152 @@
+/* Navigation */
+.nav {
+    &__bloc-recherche-ville {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        background-color: $couleur-recherche;
+        padding: 15px 0;
+        i {
+            margin: auto 10px auto 10px;          
+        }
+        input {
+            border: 0;
+            background-color: $couleur-recherche;
+            width: 150px;
+            text-align: center;
+            font-size: 1em;
+            font-weight: 700;
+        }
+    }
+    &__bloc-titre {
+        @extend %centrer;
+        background-color:$couleur-fond ;
+        padding: 50px 0;
+        h2 {
+            max-width: 70%;
+            text-align: center;
+            font-weight: 700;
+            @extend %marge-standard;
+        }
+        p {
+            max-width: 90%;
+            text-align: center;
+            margin-bottom: 25px;
+            @extend %marge-standard;
+        }
+    }
+}
+
+/* Fonctionnement */
+.fonctionnement{
+    padding: 20px;
+    h2 {
+        margin: 20px 0;
+    }
+    &__cartes {
+        @extend %centrer;
+        @include desktop {
+            flex-direction: row;
+            justify-content: center;
+        }
+        div {
+            margin: 0 10px;
+        }
+        &__lien {
+            display: flex;
+            width: 275px ;
+            height: 70px;
+            padding: 0 20px;
+            margin: 10px auto;
+            border-radius: 25px;
+            background-color: $couleur-fond;
+            align-items: center;
+            position: relative;
+            @extend %ombre-box;
+            &:hover {
+                background-color: $couleur-background-bouton;
+                @extend %ombre-box-hover;                
+                i {
+                    color: $couleur-primaire;
+                }
+            }
+            &__numero {
+                color: white;
+                background-color: $couleur-primaire;
+                font-size: 0.7em;
+                width: 25px;
+                height: 25px;
+                border-radius: 25px;
+                text-align: center;
+                line-height: 25px;
+                position:absolute;
+                left: -10px;
+            }
+            i {
+                color: $couleur-icone;
+                font-size: 1.25em;
+                margin: 0 20px;
+            }
+            p {
+                font-weight: 700;
+            }
+        }    
+    }    
+}
+/* Restaurants */
+.restaurants {
+    background-color: $couleur-fond;
+    padding: 20px;
+    h2 {
+        margin: 20px 0;
+    }
+    &__cartes {
+        display: flex;
+        flex-direction: column;
+        @include tablette {
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        &__carte {
+            background-color: white;
+            border-radius: 15px;
+            @extend %ombre-box;
+            position: relative;
+            margin-bottom: 20px;
+            @include tablette {
+                width: 49%;
+            }
+            @include desktop {
+                width: 24%;
+            }
+            img {
+                height: 180px;
+                object-fit: cover;
+                width: 100%;
+                border-radius: 15px 15px 0 0;
+            }        
+            &__nouveau {
+                position: absolute;
+                right: 15px;
+                top: 15px;
+                color: $couleur-texte-affiche-nouveau;
+                background-color: $couleur-tertiaire;
+                font-size: 0.9em;
+                padding: 5px 10px;
+                border-radius: 3px;
+            }
+            &__description {
+                display: flex;
+                justify-content: space-between;
+                margin: 10px 20px;
+                &__nom-lieu {
+                    h3 {
+                        margin-bottom: 10px;
+                    }
+                }            
+            }       
+        }    
+    }
+}    
+

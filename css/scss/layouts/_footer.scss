@@ -1,0 +1,25 @@
+.footer {
+    background-color: $couleur-footer;
+    color: white;
+    &__contenu {
+        padding: 20px 30px 40px 30px;
+        @include tablette {
+            text-align: center;
+        }
+        &__logo {
+            font-family: Shrikhand;
+            font-size: 1.3em;
+            padding-left: 15px;
+        }    
+        &__liens {
+            margin-top: 15px ;
+            @include tablette {
+                display: flex;
+                justify-content: center;
+            }
+            &__liste {
+                padding: 5px 15px;
+            }
+        }
+    }
+}

@@ -1,0 +1,17 @@
+.header {
+    &__logo {
+        @extend %marge-standard;
+        text-align: center;
+        width: 100%;
+        position: relative;
+        img {
+            width: 180px;
+        }
+    }
+    &__back-arrow {
+        font-size: 1.5em;
+        position: absolute;
+        top: 25px;
+        left: 20px;
+    }
+}

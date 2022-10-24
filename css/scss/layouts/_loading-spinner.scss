@@ -1,0 +1,46 @@
+/* Loading Spinner */
+
+@keyframes loadingscreen {
+0% {
+    opacity: 100%;
+}
+100% {
+    opacity: 0%;
+    visibility: hidden;
+}
+}
+@keyframes eclipse {
+    0% {
+        transform: rotate(0deg)
+    }
+    50% {
+        transform: rotate(180deg)
+    }
+    100% {
+        transform: rotate(360deg)
+    }
+}
+.loading-spinner {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #ffffff;
+    position:fixed;
+    top: 0;
+    z-index: 100;
+    animation: loadingscreen 0.2s 3s forwards;
+    &__eclipse{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        div {
+            animation: eclipse 1s linear infinite;
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            box-shadow: 0 12px 0 0 $couleur-primaire ;
+        }
+    }
+}

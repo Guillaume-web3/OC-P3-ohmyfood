@@ -1,0 +1,21 @@
+/* Variables */
+
+    /* Couleurs imposées par le cahier des charges */
+$couleur-primaire: #9356DC;
+$couleur-secondaire: #FF79DA;
+$couleur-tertiaire: #99E2D0;
+    /* Couleurs maquettes */
+$couleur-background-bouton: lighten($couleur-primaire, 35%);
+$couleur-texte-affiche-nouveau: darken($couleur-tertiaire, 40%);
+$couleur-recherche:#EAEBEB;
+$couleur-icone:#7F7F7E;
+$couleur-fond: #F6F6F6;
+$couleur-footer: #343434;
+
+$nombre-plat-max : 4; /* A modifier en fonction du nombre de plat maximum dans les menus */
+
+/* Maps */
+$breakpoint: (
+    tablette: 768px,
+    desktop: 992px
+);

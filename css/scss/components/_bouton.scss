@@ -1,0 +1,33 @@
+/* Bouton */
+button {
+    color: white;
+    font-size: 1em;
+    padding: 15px 30px;
+    @extend %marge-standard;
+    border:0;
+    border-radius: 25px;
+    background:linear-gradient(175deg, $couleur-secondaire, $couleur-primaire);
+    @extend %ombre-box;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    &:hover {
+        @extend %ombre-box-hover;
+        &::after{
+            opacity: 1;
+        }
+    }
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        border-radius: 25px;
+        background:linear-gradient(175deg, lighten($couleur-secondaire, 10), lighten($couleur-primaire, 5));
+        opacity: 0;
+        transition: opacity 0.25s ease-in-out;
+        z-index : -1;
+    }
+}
