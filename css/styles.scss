@@ -118,6 +118,7 @@ ul {
     font-weight: bold;
 }
 /* Composants : blocs BEM indépendants ex: boutons */
+    /* Bouton */
 button {
     color: white;
     font-size: 1em;
@@ -150,6 +151,34 @@ button {
         z-index : -1;
     }
 }
+    /* Coeur */
+.coeur {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .fa-heart {
+        font-size: 1.5em ;
+        transition: opacity 0.5s ease-in-out;
+    }
+    &--vide {
+        position: absolute;
+    }
+    &--plein {
+        background: linear-gradient(175deg, $couleur-secondaire, $couleur-primaire);
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        opacity: 0;
+    }
+    &:hover {
+        .coeur--plein {
+            opacity: 1;
+        }
+        .coeur--vide {
+            opacity: 0;
+        }
+    }
+}
+
 
 /* Layout : blocs réutilisables exemple : footer */
 .header {
@@ -399,7 +428,7 @@ button {
         transform: rotate(360deg)
     }
 }
-.loading-spinner {
+/*.loading-spinner {
     width: 100%;
     height: 100%;
     overflow: hidden;
@@ -422,7 +451,7 @@ button {
             box-shadow: 0 12px 0 0 $couleur-primaire ;
         }
     }
-}
+}*/
         /* Navigation */
 .nav {
     &__bloc-recherche-ville {
@@ -447,9 +476,10 @@ button {
         @extend %centrer;
         background-color:$couleur-fond ;
         padding: 50px 0;
-        h1 {
+        h2 {
             max-width: 70%;
             text-align: center;
+            font-weight: 700;
             @extend %marge-standard;
         }
         p {
@@ -568,17 +598,8 @@ button {
                         margin-bottom: 10px;
                     }
                 }            
-                .fa-regular {
-                    font-size: 1.5em;
-                    margin-top: 10px; 
-                    transition: color 0.25s ease-in;                
-                    &:hover {
-                        font-weight: bold;
-                        color: $couleur-primaire;
-                        transition: color 1s;
-                    }
-                }        
-            }    
-        }
-    }    
-}
+            }       
+        }    
+    }
+}    
+
